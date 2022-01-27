@@ -16,8 +16,8 @@
 		h1 {
 			color: darkolivegreen;
 			/*font-family: Castellar;*/
-			padding-top: 30px;
-			font-size: 50px;
+			margin-top: 50px;
+			font-size: 40px;
 		}
 	</style>
 
@@ -26,40 +26,68 @@
 
 @model HermesChatTeamB_v3.ViewModels.LoginViewModel
 <form method="post" asp-controller="Account" asp-action="Login">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<meta charset="utf-8" />
 	<div class="text-left">
 		<div>
-			<label style="color: darkolivegreen; font-size: 20px; padding-top: 20px;" asp-for="Email"></label><br />
+			<label style="color: darkolivegreen; font-size: 20px; padding-top: 30px;" asp-for="Email"></label><br />
 			<input style="
-				   width: 20rem; height: 3.2rem;
-				   border-radius: 5px;
-				   border-block-color: darkolivegreen;
-				   background: white"
+					width: 21rem; height: 3.2rem;
+					border-radius: 5px;
+					border-color: darkolivegreen;
+					background: white;
+					font-size : 25px;
+					color: darkolivegreen;"
 				   asp-for="Email" />
 			<span asp-validation-for="Email"></span>
 		</div>
-		<div>
+		<div class="password">
 			<label style="color: darkolivegreen; font-size: 20px; padding-top: 20px;" asp-for="Password"></label><br />
 			<input style="
-				   width: 20rem; height: 3.2rem;
-				   border-radius: 5px;
-				   border-block-color: darkolivegreen;
-				   background: white"
+					width: 21rem; height: 3.2rem;
+					border-radius: 5px;
+					border-color: darkolivegreen;
+					background: white;
+					font-size : 25px;
+					font-color: darkolivegreen;"
 				   asp-for="Password" />
 			<span asp-validation-for="Password"></span>
 		</div>
 		@*<div>
 			<label asp-for="RememberMe"></label><br />
 			<input asp-for="RememberMe" />
-		</div>*@
-		<div>
-			<input asp-controller="Account" asp-action="ForgotPassword" type="submit" value="Forgot Password?" />
+			</div>*@
+		<div class="forgotpass" style="padding-top: 30px">
+
+			<input asp-controller="Account" asp-action="ForgotPassword" ForgotPassword type="submit" value="Forgot Password?"
+				   style="color: darkolivegreen;
+					font-size: 1.3rem;">
 		</div>
 	</div>
-	<div>
-		<input type="submit" value="Login" />
-	</div>
-	<div>
-		<input asp-controller="Account" asp-action="Register" Register type="submit" value="Registration" />
+
+
+	<div container="btn btn-primary mr-5 ml-5" style="padding-top: 30px;">
+		<input type="submit" value="Login"
+			   style="
+					font-size: 1.3rem;
+					text-align: center;
+					width:9rem; height: 3rem;
+					border-width:1px;
+					border-radius: 10px;
+					border-color: darkolivegreen;
+					background: #ba52b7;
+					font-weight: normal;
+					margin-right: 50px;" />
+		<input asp-controller="Account" asp-action="Register" Register type="submit" value="Registration"
+			   style="
+					font-size: 1.3rem;
+					text-align: center;
+					width:9rem; height: 3rem;
+					border-width:1px;
+					border-radius: 10px;
+					border-color: darkolivegreen;
+					background: #ba52b7;
+					font-weight: normal" />
 	</div>
 </form>
 
@@ -67,11 +95,11 @@
 <!----
 @if (User.Identity.IsAuthenticated)
 {
-	<p>@User.Identity.Name</p>
+																						<p>@User.Identity.Name</p>
 
-	<form method="post" asp-controller="Account" asp-action="LogOff">
-	<input type="submit" value="Sign Out" />
-	</form>
+																						<form method="post" asp-controller="Account" asp-action="LogOff">
+																						<input type="submit" value="Sign Out" />
+																						</form>
 }
 else
 {
