@@ -1,24 +1,70 @@
 ﻿@model HermesChatTeamB_v3.ViewModels.RegisterViewModel
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+	body {
+		background-image: url("");
+		background-size: cover;
+		background-color: #F0F8FF;
+	}
+</style>
+
 <h2>New User Registration</h2>
+<style>
+	h2 {
+		color: darkolivegreen;
+		/*font-family: Castellar;*/
+		margin-top: 50px;
+		font-size: 40px;
+	}
+</style>
 <form method="post" asp-controller="Account" asp-action="Register">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <label asp-for="Email"></label><br />
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
-    </div>
-    <div>
-        <label asp-for="Password"></label><br />
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <label asp-for="PasswordConfirm"></label><br />
-        <input asp-for="PasswordConfirm" />
-        <span asp-validation-for="PasswordConfirm"></span>
-    </div>
-    <div>
-        <input type="submit" value="Registration" />
-    </div>
+	<div asp-validation-summary="ModelOnly"></div>
+	<div calss="text-left">
+		<label style="color: darkolivegreen; font-size: 20px; margin-top: 30px; " asp-for="Email"></label><br />
+		<input style="
+					width: 21rem; height: 3.2rem;
+					border-radius: 5px;
+					border-color: darkolivegreen;
+					background: white;
+					font-size : 25px;
+					color: darkolivegreen;"
+			   asp-for="Email" />
+		<span asp-validation-for="Email"></span>
+	</div>
+	<div>
+		<label style="color: darkolivegreen; font-size: 20px; padding-top: 20px;" asp-for="Password"></label><br />
+		<input style="
+					width: 21rem; height: 3.2rem;
+					border-radius: 5px;
+					border-color: darkolivegreen;
+					background: white;
+					font-size : 25px;
+					font-color: darkolivegreen;"
+			   asp-for="Password" />
+		<span asp-validation-for="Password"></span>
+	</div>
+	<div>
+		<label style="color: darkolivegreen; font-size: 20px; padding-top: 20px;"  asp-for="PasswordConfirm"></label><br />
+		<input style="
+					width: 21rem; height: 3.2rem;
+					border-radius: 5px;
+					border-color: darkolivegreen;
+					background: white;
+					font-size : 25px;
+					font-color: darkolivegreen;" asp-for="PasswordConfirm" />
+		<span asp-validation-for="PasswordConfirm"></span>
+	</div>
+	<div>
+		<input type="submit" value="Registration"
+			   style="
+					font-size: 1.3rem;
+					width:9rem; height: 3rem;
+					border-width:1px;
+					border-radius: 10px;
+					border-color: darkolivegreen;
+					background: #ba52b7;
+					font-weight: normal;
+					margin-top: 30px" />
+	</div>
 </form>
