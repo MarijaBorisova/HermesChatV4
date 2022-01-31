@@ -1,4 +1,6 @@
-﻿@{
+﻿<!DOCTYPE html>
+
+@{
 	ViewData["Title"] = "Home Page";
 }
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,90 +8,166 @@
 	body {
 		background-image: url("");
 		background-size: cover;
-		background-color: #F0F8FF;
+		background-color:  #aaccee;
 	}
 </style>
 
-<div class="text-left">
+
+
+@*<div class="text-center">
 	<h1 class="display">Welcome to Hermes Chat</h1>
 	<style>
-		h1 {
-			color: darkolivegreen;
-			/*font-family: Castellar;*/
-			margin-top: 50px;
-			font-size: 40px;
+	h1 {
+	color: darkolivegreen;
+	/*font-family: Castellar;*/
+	margin-top: 50px;
+	font-size: 40px;
+	}
+	</style>
+	</div>
+*@
+
+<!--<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>-->
+@*<form action="action_page.php" method="post" class="text-center">
+	<div class="imgcontainer">
+	<img src="img_avatar2.png" alt="Avatar" class="avatar">
+	</div>
+	</form>*@
+
+<div class="wrapper">
+	<style>
+		.wrapper {
+			background: #aaccee;
+			max-width: var(--wrapper-width, 500px);
+			height: 600px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 10px;
+			margin-bottom: 30px;
+			padding-left: 35px;
+			padding-right: 35px;
+			padding-top: 30px;
 		}
 	</style>
+	<div class="inner-wrapper text center">
+		<h2 class="title">Welcome to Hermes Chat</h2>
+		<style>
+			.title {
+				text-align: center;
+				padding-bottom: 15px;
+				color:darkblue;
+				font-family: 'Brush Script MT';
+				font-size: 45px;
+			}
+		</style>
+		@model HermesChatTeamB_v3.ViewModels.LoginViewModel
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<meta charset="utf-8" />
+		<form method="post" asp-controller="Account" asp-action="Login">
+			<div class="inputgroup">
+				<style>
+					.inputgroup {
+						background: #bbddee;
+						margin-left: 30px;
+						margin-right: 30px;
+						padding-left: 30px;
+						padding-right: 30px;
+						padding-top: 20px;						
+						font-family: Gotham SSm A;
+						font-size: 18px
+					}
+				</style>
+				<div class="clearfix">
+					<label for="email">
+						<i class="fa fa-envelope" i style="color: darkblue; font-size: 20px"></i>
+					</label>
+					<input type="text" class="form-control" name="email" id="email" placeholder="e-mail"
+						   asp-for="Email" />									
+				<span asp-validation-for="Email"></span>
+			
+					<label for="password">
+						<i class="fa fa-unlock-alt" i style="color: darkblue; font-size: 25px; padding-top:15px;"></i>
+					</label>
+					<input type="password" class="form-control" value="" name="password" id="Input" placeholder="password"
+						   asp-for="Password" />
+						   <div class="click" style="padding-top:10px"></div>
+					<input type="checkbox" onclick="myFunction()" /> Show Password 
+					<script>
+						function myFunction() {
+							var x = document.getElementById("Input");
+							if (x.type === "password")
+							{
+								x.type = "text";
+							} else {
+								x.type = "password";
+							}
+						}
+					</script>				
+				<span asp-validation-for="Password"></span>
 
-	<!--<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>-->
+				<style>
+						.form-control {
+							border: 1px solid darkolivegreen;
+							background:  #F0F8FF;
+							border-radius: 5px;
+							height: 45px;							
+						}
+					</style>
+				</div>
+
+				<div class="support">
+					<style>
+						.support {
+							padding-top: 15px;
+						}
+					</style>
+
+					<input asp-for="RememberMe" />
+					<label asp-for="RememberMe" style="padding-right: 60px;"></label>
+
+					
+
+					<input asp-controller="Account" asp-action="ForgotPassword"
+						   ForgotPassword type="submit" value="Forgot Password?"; 
+						   style="background: #bbddee; border: none;"	 />
+
+					<button type="submit" value="Login"
+							style="margin-top: 15px;
+							margin-bottom: 20px;
+							width:310px; height: 45px;
+							border-width:1px;
+							border-radius: 5px;
+							border-color: #ba52b7;
+							background: #ffbb00;							
+							font-weight: normal;
+							font-size: 20px;	
+							color: darkblue;
+							letter-spacing: 1px;">
+						Sign In
+					</button>
+
+
+					<label for="submit"> Haven`t registered yet? Click </label>
+					<input asp-controller="Account" asp-action="Register" type="submit" value="here."; 
+						   style="
+							background: #bbddee; 
+							border: none;
+							font-size:20px;
+							font-style: italic;
+							color: darkblue;
+							font-weight: bolder" />
+				</div>
+
+
+				<a href="#" class="fb btn" style="padding-top: 15px; padding-bottom: 40px;">
+					<i class="fa fa-facebook fa-fw"></i> Login with Facebook
+				</a>
+			</div>
+		</form>
+	</div>
 </div>
 
-@model HermesChatTeamB_v3.ViewModels.LoginViewModel
-<form method="post" asp-controller="Account" asp-action="Login">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<meta charset="utf-8" />
-	<div class="text-left">
-		<div>
-			<label style="color: darkolivegreen; font-size: 20px; padding-top: 30px;" asp-for="Email"></label><br />
-			<input style="
-					width: 21rem; height: 3.2rem;
-					border-radius: 5px;
-					border-color: darkolivegreen;
-					background: white;
-					font-size : 25px;
-					color: darkolivegreen;"
-				   asp-for="Email" />
-			<span asp-validation-for="Email"></span>
-		</div>
-		<div class="password">
-			<label style="color: darkolivegreen; font-size: 20px; padding-top: 20px;" asp-for="Password"></label><br />
-			<input style="
-					width: 21rem; height: 3.2rem;
-					border-radius: 5px;
-					border-color: darkolivegreen;
-					background: white;
-					font-size : 25px;
-					font-color: darkolivegreen;"
-				   asp-for="Password" />
-			<span asp-validation-for="Password"></span>
-		</div>
-		@*<div>
-			<label asp-for="RememberMe"></label><br />
-			<input asp-for="RememberMe" />
-			</div>*@
-		<div class="forgotpass" style="padding-top: 30px">
 
-			<input asp-controller="Account" asp-action="ForgotPassword" ForgotPassword type="submit" value="Forgot Password?"
-				   style="color: darkolivegreen;
-					font-size: 1.3rem;">
-		</div>
-	</div>
-
-
-	<div container="btn btn-primary mr-5 ml-5" style="padding-top: 30px;">
-		<input type="submit" value="Login"
-			   style="
-					font-size: 1.3rem;
-					text-align: center;
-					width:9rem; height: 3rem;
-					border-width:1px;
-					border-radius: 10px;
-					border-color: darkolivegreen;
-					background: #ba52b7;
-					font-weight: normal;
-					margin-right: 50px;" />
-		<input asp-controller="Account" asp-action="Register" Register type="submit" value="Registration"
-			   style="
-					font-size: 1.3rem;
-					text-align: center;
-					width:9rem; height: 3rem;
-					border-width:1px;
-					border-radius: 10px;
-					border-color: darkolivegreen;
-					background: #ba52b7;
-					font-weight: normal" />
-	</div>
-</form>
 
 
 @if (User.Identity.IsAuthenticated)
@@ -103,7 +181,9 @@
 
 else
 {
-@*<a asp-controller="Account" asp-action="Login">Login</a>*@
-@*<a asp-controller="Account" asp-action="Register">Register</a>*@
+	@*<a asp-controller="Account" asp-action="Login">Login</a>*@
+	@*<a asp-controller="Account" asp-action="Register">Register</a>*@
 }
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
 

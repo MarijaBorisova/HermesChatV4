@@ -9,62 +9,118 @@
 	}
 </style>
 
-<h2>New User Registration</h2>
-<style>
+@*<h2>New User Registration</h2>
+	<style>
 	h2 {
-		color: darkolivegreen;
-		/*font-family: Castellar;*/
-		margin-top: 50px;
-		font-size: 40px;
+	color: darkolivegreen;
+	/*font-family: Castellar;*/
+	margin-top: 50px;
+	font-size: 40px;
 	}
-</style>
-<form method="post" asp-controller="Account" asp-action="Register">
-	<div asp-validation-summary="ModelOnly"></div>
-	<div calss="text-left">
-		<label style="color: darkolivegreen; font-size: 20px; margin-top: 30px; " asp-for="Email"></label><br />
-		<input style="
-					width: 21rem; height: 3.2rem;
-					border-radius: 5px;
-					border-color: darkolivegreen;
-					background: white;
-					font-size : 25px;
-					color: darkolivegreen;"
-			   asp-for="Email" />
-		<span asp-validation-for="Email"></span>
-	</div>
-	<div>
-		<label style="color: darkolivegreen; font-size: 20px; padding-top: 20px;" asp-for="Password"></label><br />
-		<input style="
-					width: 21rem; height: 3.2rem;
-					border-radius: 5px;
-					border-color: darkolivegreen;
-					background: white;
-					font-size : 25px;
-					font-color: darkolivegreen;"
-			   asp-for="Password" />
-		<span asp-validation-for="Password"></span>
-	</div>
-	<div>
-		<label style="color: darkolivegreen; font-size: 20px; padding-top: 20px;"  asp-for="PasswordConfirm"></label><br />
-		<input style="
-					width: 21rem; height: 3.2rem;
-					border-radius: 5px;
-					border-color: darkolivegreen;
-					background: white;
-					font-size : 25px;
-					font-color: darkolivegreen;" asp-for="PasswordConfirm" />
-		<span asp-validation-for="PasswordConfirm"></span>
-	</div>
-	<div>
-		<input type="submit" value="Registration"
-			   style="
-					font-size: 1.3rem;
-					width:9rem; height: 3rem;
-					border-width:1px;
-					border-radius: 10px;
-					border-color: darkolivegreen;
-					background: #ba52b7;
-					font-weight: normal;
-					margin-top: 30px" />
-	</div>
-</form>
+	</style>*@
+
+<div class="inner-wrapper text center">
+	<h2 class="title">New User Registration</h2>
+	<style>
+		.title {
+			text-align: center;
+			padding-bottom: 15px;
+			color: darkblue;
+			font-family: Gotham SSm A;
+			font-size: 40px;
+			margin-top: 30px;
+		}
+	</style>
+
+	<form method="post" asp-controller="Account" asp-action="Register" >
+		<div asp-validation-summary="ModelOnly"></div>
+		<div class="inputgroup">
+			<style>
+				.inputgroup {
+					max-width: var(--wrapper-width, 380px);
+					height: 550px;
+					margin-top: 10px;
+					margin-bottom: 30px;
+					margin-left: auto;
+					margin-right: auto;
+					padding-top: 25px;
+					padding-left: 35px;
+					padding-right: 35px;
+					background: #bbddee;
+					font-family: Gotham SSm A;
+					font-size: 18px;
+					color: black;
+				}
+			</style>
+			<div class="clearfix">
+				<label for="email">
+					<i class="fa fa-envelope" i style="color: darkblue; font-size: 20px"></i>
+				</label>
+				<input type="text" class="form-control" name="email" id="email" placeholder="e-mail"
+					   asp-for="Email" />
+				<span asp-validation-for="Email"></span>	
+				<br />	
+				<label for="password">
+					<i class="fa fa-unlock-alt" i style="color: darkblue; font-size: 25px; padding-top:15px;"></i>
+				</label>
+				<input type="password" class="form-control" value="" name="password" id="Input" placeholder="password"
+					   asp-for="Password" />
+				<input type="checkbox" onclick="myFunction()" /> Show Password<br />
+				<script>
+					function myFunction() {
+						var x = document.getElementById("Input");
+						if (x.type === "password")
+						{
+							x.type = "text";
+						} else {
+							x.type = "password";
+						}
+					}
+				</script>
+				<span asp-validation-for="PasswordConfirm"></span>
+				<br />
+
+				<label for="passwordconf">
+					<i class="fa fa-unlock-alt" i style="color: darkblue; font-size: 25px; padding-top:15px;"></i>
+				</label>
+				<input type="password" class="form-control" value="" name="password" id="Input" placeholder="password"
+					   asp-for="PasswordConfirm" />
+				<input type="checkbox" onclick="myFunction()" /> Show Password<br />
+				<script>
+					function myFunction() {
+						var x = document.getElementById("Input");
+						if (x.type === "password")
+						{
+							x.type = "text";
+						} else {
+							x.type = "password";
+						}
+					}
+				</script>
+				<span asp-validation-for="PasswordConfirm"></span>
+
+				<style>
+					.form-control {
+						border: 1px solid darkolivegreen;
+						background: #F0F8FF;
+						border-radius: 5px;
+						height: 45px;
+					}
+				</style>
+			
+				<input type="submit" value="Register"
+					   style="margin-top: 30px;
+							width:310px; height: 45px;
+							border-width:1px;
+							border-radius: 5px;
+							border-color: #ba52b7;
+							background: #ffbb00;
+							font-weight: normal;
+							font-size: 20px;
+							color: darkblue;
+							letter-spacing: 1px;
+							font-family: Gotham SSm A;" />
+			</div>
+		</div>
+	</form>
+</div>
