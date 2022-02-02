@@ -1,0 +1,29 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    background-image: url("");
+    background-size: cover;
+    background-color: #F0F8FF;
+}
+
+.title {
+    text-align: left;
+    padding-bottom: 15px;
+    color: darkblue;
+    font-family: Gotham SSm A;
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+.policy {
+    text-align: justify; /* Выравнивание по ширине */
+    margin-left: 60px; /* Отступ слева в пикселах */
+    margin-right: 10px; /* Отступ справа в пикселах */
+    border-left: 1px solid #999; /* Параметры линии слева */
+    border-bottom: 1px solid #999; /* Параметры линии снизу */
+    padding-left: 10px; /* Отступ от линии слева до текста  */
+    padding-bottom: 10px; /* Отступ от линии снизу до текста  */
+    margin-top: 30px;
+    font-family: Gotham SSm A;
+    font-size: 20px;
+}
