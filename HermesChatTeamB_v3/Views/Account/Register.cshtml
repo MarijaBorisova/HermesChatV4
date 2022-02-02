@@ -8,11 +8,23 @@
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/register.css" />
 </head>
+
+
 <body>
 
+
 	<h2 class="title">New User Registration</h2>
+	<div class="validation-summary-errors">
+		@*<ul>
+			<li>Passwords must be at least 6 characters.</li>
+			<li>Passwords must have at least one non alphanumeric character.</li>
+			<li>Passwords must have at least one lowercase ('a'-'z').</li>
+			<li>Passwords must have at least one uppercase ('A'-'Z').</li>
+			</ul>*@
+	</div>
 	<div class="inputgroup">
 		<form method="post" asp-controller="Account" asp-action="Register">
+
 			<div asp-validation-summary="ModelOnly"></div>
 			<div>
 				<label asp-for="Email">
