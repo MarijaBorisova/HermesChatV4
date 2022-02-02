@@ -1,31 +1,18 @@
-﻿<!DOCTYPE html>
-
-@{
+﻿@{
 	ViewData["Title"] = "Home Page";
 }
+
+@model HermesChatTeamB_v3.ViewModels.LoginViewModel
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 	body {
 		background-image: url("");
 		background-size: cover;
-		background-color:  #aaccee;
+		background-color: #aaccee;
 	}
 </style>
 
-
-
-@*<div class="text-center">
-	<h1 class="display">Welcome to Hermes Chat</h1>
-	<style>
-	h1 {
-	color: darkolivegreen;
-	/*font-family: Castellar;*/
-	margin-top: 50px;
-	font-size: 40px;
-	}
-	</style>
-	</div>
-*@
 
 <!--<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>-->
 @*<form action="action_page.php" method="post" class="text-center">
@@ -55,12 +42,12 @@
 			.title {
 				text-align: center;
 				padding-bottom: 15px;
-				color:darkblue;
+				color: darkblue;
 				font-family: 'Brush Script MT';
 				font-size: 45px;
 			}
 		</style>
-		@model HermesChatTeamB_v3.ViewModels.LoginViewModel
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<meta charset="utf-8" />
 		<form method="post" asp-controller="Account" asp-action="Login">
@@ -72,7 +59,7 @@
 						margin-right: 30px;
 						padding-left: 30px;
 						padding-right: 30px;
-						padding-top: 20px;						
+						padding-top: 20px;
 						font-family: Gotham SSm A;
 						font-size: 18px
 					}
@@ -81,36 +68,26 @@
 					<label for="email">
 						<i class="fa fa-envelope" i style="color: darkblue; font-size: 20px"></i>
 					</label>
-					<input type="text" class="form-control" name="email" id="email" placeholder="e-mail"
-						   asp-for="Email" />									
-				<span asp-validation-for="Email"></span>
-			
+					<input type="email" class="form-control" name="email" id="email" placeholder="e-mail"
+						   asp-for="Email" />
+					<span asp-validation-for="Email"></span>
+
 					<label for="password">
 						<i class="fa fa-unlock-alt" i style="color: darkblue; font-size: 25px; padding-top:15px;"></i>
 					</label>
 					<input type="password" class="form-control" value="" name="password" id="Input" placeholder="password"
 						   asp-for="Password" />
-						   <div class="click" style="padding-top:10px"></div>
-					<input type="checkbox" onclick="myFunction()" /> Show Password 
-					<script>
-						function myFunction() {
-							var x = document.getElementById("Input");
-							if (x.type === "password")
-							{
-								x.type = "text";
-							} else {
-								x.type = "password";
-							}
-						}
-					</script>				
-				<span asp-validation-for="Password"></span>
+					<span asp-validation-for="Password"></span>
+					<div class="click" style="padding-top:10px"></div>
+					<input type="checkbox" onclick="myFunction()" /> Show Password
 
-				<style>
+
+					<style>
 						.form-control {
 							border: 1px solid darkolivegreen;
-							background:  #F0F8FF;
+							background: #F0F8FF;
 							border-radius: 5px;
-							height: 45px;							
+							height: 45px;
 						}
 					</style>
 				</div>
@@ -125,11 +102,11 @@
 					<input asp-for="RememberMe" />
 					<label asp-for="RememberMe" style="padding-right: 60px;"></label>
 
-					
+
 
 					<input asp-controller="Account" asp-action="ForgotPassword"
-						   ForgotPassword type="submit" value="Forgot Password?"; 
-						   style="background: #bbddee; border: none;"	 />
+						   ForgotPassword type="submit" value="Forgot Password?" ;
+						   style="background: #bbddee; border: none;" />
 
 					<button type="submit" value="Login"
 							style="margin-top: 15px;
@@ -138,27 +115,26 @@
 							border-width:1px;
 							border-radius: 5px;
 							border-color: #ba52b7;
-							background: #ffbb00;							
+							background: #ffbb00;
 							font-weight: normal;
-							font-size: 20px;	
+							font-size: 20px;
 							color: darkblue;
 							letter-spacing: 1px;">
 						Sign In
+
 					</button>
 
 
 					<label for="submit"> Haven`t registered yet? Click </label>
-					<input asp-controller="Account" asp-action="Register" type="submit" value="here."; 
+					<input asp-controller="Account" asp-action="Register" type="submit" value="here." ;
 						   style="
-							background: #bbddee; 
+							background: #bbddee;
 							border: none;
 							font-size:20px;
 							font-style: italic;
 							color: darkblue;
 							font-weight: bolder" />
 				</div>
-
-
 				<a href="#" class="fb btn" style="padding-top: 15px; padding-bottom: 40px;">
 					<i class="fa fa-facebook fa-fw"></i> Login with Facebook
 				</a>
@@ -184,6 +160,19 @@ else
 	@*<a asp-controller="Account" asp-action="Login">Login</a>*@
 	@*<a asp-controller="Account" asp-action="Register">Register</a>*@
 }
+
+<script>
+	function myFunction() {
+		var x = document.getElementById("Input");
+		if (x.type === "password")
+		{
+			x.type = "text";
+		} else {
+			x.type = "password";
+		}
+	}
+</script>
+
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/chat.js"></script>
 

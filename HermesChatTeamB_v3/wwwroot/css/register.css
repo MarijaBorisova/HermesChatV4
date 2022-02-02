@@ -1,0 +1,58 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    background-image: url("");
+    background-size: cover;
+    background-color: #F0F8FF;
+}
+
+.title {
+    text-align: center;
+    padding-bottom: 15px;
+    color: darkblue;
+    font-family: Gotham SSm A;
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+.inputgroup {
+    max-width: var(--wrapper-width, 380px);
+    height: 550px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 25px;
+    padding-left: 35px;
+    padding-right: 35px;
+    background: #bbddee;
+    font-family: Gotham SSm A;
+    font-size: 18px;
+    color: black;
+}
+
+.form-control {
+    border: 1px solid darkolivegreen;
+    background: #F0F8FF;
+    border-radius: 5px;
+    height: 45px;
+}
+
+.register {
+    margin-top: 30px;
+    width: 310px;
+    height: 45px;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: #ba52b7;
+    background: #ffbb00;
+    font-weight: normal;
+    font-size: 20px;
+    color: darkblue;
+    letter-spacing: 1px;
+    font-family: Gotham SSm A
+}
+.validation-summary-errors {
+    font-size: 12px;
+    color: red;
+}
