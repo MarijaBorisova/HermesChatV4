@@ -4,11 +4,21 @@ using HermesChatTeamB_v3.ViewModels;
 using HermesChatTeamB_v3.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace HermesChatTeamB_v3.Controllers
 {
     public class AccountController : Controller
     {
+    //    private readonly ApplicationDbContext _context;
+    //    public AccountController(ApplicationDbContext context)
+    //    {
+    //        _context = context;
+    //    }
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
 
@@ -96,13 +106,14 @@ namespace HermesChatTeamB_v3.Controllers
                     {
                         ModelState.AddModelError(string.Empty, "You email has not been confirmed");
                         return View(model);
+                        //return RedirectToAction("Index", "Account");
                     }
                 }
 
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Chat");
                 }
                 else
                 {

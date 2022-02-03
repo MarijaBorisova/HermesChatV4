@@ -1,4 +1,5 @@
 using HermesChatTeamB_v3.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -24,8 +25,16 @@ namespace HermesChatTeamB_v3
             services.AddIdentity<User, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
-            services.AddControllersWithViews();
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Home");
+                    options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Home");
+                });
+
+            services.AddSignalR();
+            services.AddControllersWithViews();
 
         }
 
@@ -45,6 +54,12 @@ namespace HermesChatTeamB_v3
                 endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHub<ChatHub>("/chathub");
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }

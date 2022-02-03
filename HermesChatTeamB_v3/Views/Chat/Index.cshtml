@@ -1,0 +1,83 @@
+﻿
+@if (User.Identity.IsAuthenticated)
+{
+	<p>Welcome! @User.Identity.Name to Hermes Chat App!!!</p>
+
+}
+
+else
+{
+	@*<a asp-controller="Account" asp-action="Login">Login</a>*@
+	@*<a asp-controller="Account" asp-action="Register">Register</a>*@
+}
+<br />
+ 
+<br />
+ 
+
+
+<div id="inputForm">
+    <input type="text" id="message" />
+    <input type="button" id="sendBtn" value="Send" />
+</div>
+
+<div id="chatroom"></div>
+ 
+<script src="~/js/signalr/dist/browser/signalr.min.js"></script>
+<script>
+    const hubConnection = new signalR.HubConnectionBuilder()
+        .withUrl("/chathub")
+        .build();
+ 
+    let userName = "";
+    // getting the message from the server
+    hubConnection.on("Send", function (message, userName) {
+ 
+        //create element <b> for user's name
+        let userNameElem = document.createElement("b");
+        userNameElem.appendChild(document.createTextNode(userName + ": "));
+ 
+        // create element <p> for user's message
+        let elem = document.createElement("p");
+        elem.appendChild(userNameElem);
+        elem.appendChild(document.createTextNode(message));
+ 
+        var firstElem = document.getElementById("chatroom").firstChild;
+        document.getElementById("chatroom").insertBefore(elem, firstElem);
+ 
+    });
+
+ 
+    // set up user's name
+    document.getElementById("loginBtn").addEventListener("click", function (e) {
+        userName = document.getElementById("userName").value;
+        document.getElementById("header").innerHTML = "<h3>Welcome " + userName + "</h3>";
+    });
+    // sending the message from the user
+    document.getElementById("sendBtn").addEventListener("click", function (e) {
+        let message = document.getElementById("message").value;
+        hubConnection.invoke("Send", message, userName);
+    });
+   
+    hubConnection.start();
+</script>
+
+         
+
+@if (User.Identity.IsAuthenticated)
+{
+	<p>@User.Identity.Name, if you would not like to use Hermes Chat App, please</p>
+
+	<form method="post" asp-controller="Account" asp-action="LogOff">
+		<input type="submit" value="Sign Out" />
+	</form>
+}
+
+else
+{
+	@*<a asp-controller="Account" asp-action="Login">Login</a>*@
+	@*<a asp-controller="Account" asp-action="Register">Register</a>*@
+}
+
+
+
