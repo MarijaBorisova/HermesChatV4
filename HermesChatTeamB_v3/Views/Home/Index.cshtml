@@ -124,6 +124,7 @@
 
 					</button>
 
+					
 
 					<label for="submit"> Haven`t registered yet? Click </label>
 					<input asp-controller="Account" asp-action="Register" type="submit" value="here." ;
@@ -144,23 +145,6 @@
 </div>
 
 
-
-@*
-@if (User.Identity.IsAuthenticated)
-{
-	<p>@User.Identity.Name</p>
-
-	<form method="post" asp-controller="Account" asp-action="LogOff">
-		<input type="submit" value="Sign Out" />
-	</form>
-}
-
-else
-{
-	@*<a asp-controller="Account" asp-action="Login">Login</a>*@
-	@*<a asp-controller="Account" asp-action="Register">Register</a>*@
-}
-
 <script>
 	function myFunction() {
 		var x = document.getElementById("Input");
@@ -173,6 +157,5 @@ else
 	}
 </script>
 
-<script src="~/js/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/chat.js"></script>
+
 

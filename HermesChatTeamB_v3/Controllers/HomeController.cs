@@ -1,4 +1,5 @@
 ﻿using HermesChatTeamB_v3.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace HermesChatTeamB_v3.Controllers
 {
+   
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -17,7 +19,8 @@ namespace HermesChatTeamB_v3.Controllers
         {
             _logger = logger;
         }
-
+       
+        
         public IActionResult Index()
         {
             return View();
